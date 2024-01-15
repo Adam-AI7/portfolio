@@ -1,2 +1,2 @@
 # portfolio
-just now started developing...
+just now started developing..
