@@ -17,14 +17,14 @@ $(document).ready(function() {
 				console.log(message,nameInput,mail,subject);
 				let mailVerify = /^\S+@\S+\.\S+$/.test(mail);
 				if(!mailVerify || mail==''){
-					alert('Mail not Valid')
+				return	alert('Mail not Valid')
 				}
 				else if(nameInput==''){
-					alert('Name Input not Valid')
+				return	alert('Name Input not Valid')
 				}else if(subject==''){
-					alert('Subject Input not Valid')
+				return	alert('Subject Input not Valid')
 				}else if(message==''){
-					alert('Message Input not Valid')
+				return	alert('Message Input not Valid')
 				}
 				Email.send({
 					Host : "smtp.elasticemail.com",
@@ -32,10 +32,10 @@ $(document).ready(function() {
 					Password : "C78CAA2526F818EB407F780F40572F41DF60",
 					To : 'adam.dev.ai7@gmail.com',
 					From : "adam.dev.ai7@gmail.com",
-					Subject : sub||'test txt',
-					Body :mes||'working'
+					Subject : `${subject }-${mail}`||'test txt',
+					Body :message||'working'
 				}).then(
-				  message => alert(message)
+				  message => alert("Mail Sent Successfully !")
 				);
 			});
 		}); 
